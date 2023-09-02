@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:lottie/lottie.dart';
 import 'package:trip_planner/database/db_helper.dart';
+import 'package:trip_planner/screens/loging_signup/transition.dart';
 import 'package:trip_planner/widgets/ongoing_cad.dart';
 
 import '../screens/ontap_screens/ongoing_trip_screen.dart';
@@ -59,12 +60,8 @@ class _OnGoingWidState extends State<OnGoingWid> {
           Map<String, dynamic>? TripData = snapshot.data;
           return GestureDetector(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) {
-                  return OnGoingScreen(
-                      TripData: TripData, UserInfo: widget.UserInfo);
-                },
-              ));
+              Navigator.of(context).push(SizeTransitions(OnGoingScreen(
+                  TripData: TripData, UserInfo: widget.UserInfo)));
             },
             child: OngoingCard(
               TripData: TripData,

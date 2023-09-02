@@ -154,11 +154,6 @@ class LoginPage extends StatelessWidget {
       logincheck = true;
       Navigator.of(ctx).pushAndRemoveUntil(
           SizeTransitions(BottomNavBar(UserDetails: result)), (route) => false);
-      // Navigator.of(ctx).pushReplacement(MaterialPageRoute(builder: (ctx) {
-      //   return BottomNavBar(
-      //     UserDetails: result,
-      //   );
-      // }));
     }
   }
 }

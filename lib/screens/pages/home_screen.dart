@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trip_planner/screens/loging_signup/transition.dart';
 
 // import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:trip_planner/screens/pages/bucket_home.dart';
@@ -31,13 +32,9 @@ class _HomeState extends State<Home> {
             key: scaffoldKey,
             floatingActionButton: FloatingActionButton(
                 onPressed: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) {
-                      return AddTrip1(
-                        UserInfo: widget.UserInfo,
-                      );
-                    },
-                  ));
+                  Navigator.of(context).push(SizeTransitions(AddTrip1(
+                    UserInfo: widget.UserInfo,
+                  )));
                 },
                 backgroundColor: Colors.black,
                 shape: RoundedRectangleBorder(

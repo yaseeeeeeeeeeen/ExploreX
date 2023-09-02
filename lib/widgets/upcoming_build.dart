@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:trip_planner/database/db_helper.dart';
+import 'package:trip_planner/screens/loging_signup/transition.dart';
 import 'package:trip_planner/screens/ontap_screens/upcoming_screen.dart';
 import 'package:trip_planner/screens/trip_adding/add_trip1.dart';
 import 'package:trip_planner/widgets/upcoming_trip.dart';
@@ -28,13 +29,9 @@ class _UpcomingTripWidState extends State<UpcomingTripWid> {
           if (snapshot.data == null || snapshot.data!.isEmpty) {
             return GestureDetector(
               onTap: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) {
-                    return AddTrip1(
-                      UserInfo: widget.UserInfo,
-                    );
-                  },
-                ));
+                Navigator.of(context).push(SizeTransitions(AddTrip1(
+                  UserInfo: widget.UserInfo,
+                )));
               },
               child: Container(
                 child: Center(
@@ -75,14 +72,10 @@ class _UpcomingTripWidState extends State<UpcomingTripWid> {
 
                 return InkWell(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) {
-                        return UpcomingScreen(
-                          TripInfo: Tripdata,
-                          userInfo: widget.UserInfo,
-                        );
-                      },
-                    ));
+                    Navigator.of(context).push(SizeTransitions(UpcomingScreen(
+                      TripInfo: Tripdata,
+                      userInfo: widget.UserInfo,
+                    )));
                   },
                   child: UpcomingWid(
                     startdate: Tripdata[DatabaseHelper.ColumDateStart],
